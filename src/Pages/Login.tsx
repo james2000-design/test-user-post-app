@@ -40,11 +40,11 @@ const Login = () => {
     }
   }, [isAuthenticated, navigate]);
   return (
-    <div className="flex items-center justify-center bg-gray-200 min-h-screen">
+    <div className="flex items-center justify-center ">
       <div className="p-6 rounded-2xl shadow-lg w-full max-w-md bg-white border-2 border-gray-200">
         {/* Error Message */}
         {error && (
-          <div className="mb-4 p-2 text-red-600 bg-red-100 rounded-lg text-sm">
+          <div className="mb-4 p-2 text-[#9A1725] bg-red-100 rounded-lg text-sm">
             {error}
           </div>
         )}
@@ -74,7 +74,7 @@ const Login = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder="Enter your email"
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-red-500 focus:outline-none"
+              className="mt-1 block w-full px-4 py-2 bg-[#F9F9FA] border border-gray-300 rounded-lg focus:ring focus:ring-red-500 focus:outline-none"
               required
             />
           </div>
@@ -86,7 +86,7 @@ const Login = () => {
               Password{}
               <button
                 type="button"
-                className="text-red-600 text-sm hover:underline cursor-pointer"
+                className="text-[#9A1725] text-sm hover:underline cursor-pointer"
                 onClick={() => navigate("/forgot-password")}
               >
                 Forgot Password?
@@ -100,7 +100,7 @@ const Login = () => {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="••••••••"
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-red-500 focus:outline-none"
+                className="mt-1 block w-full px-4 py-2 bg-[#F9F9FA] border border-gray-300 rounded-lg focus:ring focus:ring-red-500 focus:outline-none"
                 required
               />
               <button
@@ -115,7 +115,7 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition"
+            className="w-full bg-[#9A1725] text-white py-2 rounded-lg hover:bg-[#9A1725] transition"
           >
             Sign In
           </button>
@@ -124,7 +124,7 @@ const Login = () => {
           Don’t have an account?{" "}
           <button
             type="button"
-            className="text-red-600 font-semibold hover:underline cursor-pointer"
+            className="text-[#9A1725] font-semibold hover:underline cursor-pointer"
             onClick={() => navigate("/signup")}
           >
             Sign Up

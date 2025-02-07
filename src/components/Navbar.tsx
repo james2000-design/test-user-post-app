@@ -23,7 +23,7 @@ export const Navbar = () => {
         placeholder="Search"
         type="search"
       />
-      <div className="flex items-center gap-4 relative">
+      <div className="flex items-center  relative">
         <MdNotificationsNone className="text-white text-xl cursor-pointer" />
         <div className="relative">
           <button
@@ -38,10 +38,10 @@ export const Navbar = () => {
           </button>
 
           {dropdownOpen && (
-            <div className="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg py-2">
+            <div className="absolute right-0 mt-2 w-25 text-center bg-white shadow-lg hover:bg-gray-100 cursor-pointer rounded-lg py-1">
               <button
                 onClick={handleLogout}
-                className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
+                className="block w-full text-center px-4 py-2 text-gray-700 cursor-pointer "
               >
                 Logout
               </button>

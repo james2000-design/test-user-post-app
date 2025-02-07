@@ -1,9 +1,9 @@
-import { FileText } from "lucide-react";
 import { Card } from "../UI/Card";
 import flags from "../../assets/flags1.png";
 import flag2 from "../../assets/flag2.png";
 import flag3 from "../../assets/flags3.png";
 import flag4 from "../../assets/flags4.png";
+import HoverModal from "../UI/hoverModal";
 
 interface CountryDataProps {
   title: string;
@@ -33,14 +33,9 @@ export const TrafficCard = ({ title }: CountryDataProps) => {
   ];
   return (
     <Card className="w-full max-w-md p-4 bg-white mt-1 ">
-      <div className="flex justify-between items-start">
-        <div>
-          <div className="text-sm text-gray-500 mb-1 border-b border-gray-300 border-dashed">
-            {title}
-          </div>
-          <div className="text-lg font-medium text-start">17 -</div>
-        </div>
-        <FileText className="w-5 h-5 mr-2" />
+      <div className="">
+        <HoverModal title={title} />
+        <div className=" text-left">17 -</div>
       </div>
       {/*  */}
       <table className="w-full mt-4 text-left text-gray-700">
@@ -97,14 +92,9 @@ export const CountryCard = ({ title }: CountryDataProps) => {
   ];
   return (
     <Card className="w-full max-w-md p-4 bg-white mt-1">
-      <div className="flex justify-between items-start">
-        <div>
-          <div className="text-sm text-gray-500 mb-1 border-b border-gray-300 border-dashed">
-            {title}
-          </div>
-          <div className="text-lg font-medium text-start">17 -</div>
-        </div>
-        <FileText className="w-5 h-5 mr-2" />
+      <div className="">
+        <HoverModal title={title} />
+        <div className=" font-medium text-left">17 -</div>
       </div>
       {/*  */}
       <table className="w-full mt-4 text-left text-gray-700">

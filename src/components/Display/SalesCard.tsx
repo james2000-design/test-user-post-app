@@ -1,5 +1,3 @@
-import { FileText } from "lucide-react";
-
 import {
   Line,
   LineChart,
@@ -9,6 +7,7 @@ import {
   YAxis,
 } from "recharts";
 import { Card } from "../UI/Card";
+import HoverModal from "../UI/hoverModal";
 
 interface SalesCardProps {
   title: string;
@@ -23,15 +22,11 @@ const SalesCard = ({ title }: SalesCardProps) => {
   ];
   return (
     <Card className="w-full max-w-md p-4 bg-white mt-1">
-      <div className="flex justify-between items-start">
-        <div>
-          <div className="text-sm text-gray-500 mb-1 border-b border-gray-300 border-dashed">
-            {title}
-          </div>
-          <div className="text-start">₦0.00 -</div>
-        </div>
-        <FileText className="w-5 h-5 mr-2" />
+      <div className="text-sm text-gray-500 mb-1">
+        <HoverModal title={title} />
+        <div className="text-start">₦0.00 -</div>
       </div>
+
       <div className="  h-32 mt-4 ">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data} margin={{ top: 5, bottom: 5, left: -30 }}>
@@ -102,15 +97,10 @@ export const ReturnCard = ({ title }: SalesCardProps) => {
     { time: "8:00 PM", value: 0 },
   ];
   return (
-    <Card className="w-full max-w-md p-4 bg-white mt-1">
-      <div className="flex justify-between items-start">
-        <div>
-          <div className="text-sm text-gray-500 mb-1 border-b border-gray-300 border-dashed">
-            {title}
-          </div>
-          <div className="text-start">₦0.00 -</div>
-        </div>
-        <FileText className="w-5 h-5 mr-2" />
+    <Card className="w-full max-w-md px-4  bg-white mt-1">
+      <div className="text-sm text-gray-500 ">
+        <HoverModal title={title} />
+        <div className="text-start">₦0.00 -</div>
       </div>
       <div className="  h-32 mt-4 ">
         <ResponsiveContainer width="100%" height="100%">
@@ -135,7 +125,7 @@ export const ReturnCard = ({ title }: SalesCardProps) => {
       </div>
       <div className="flex justify-end gap-8 mt-2 mr-2 text-xs text-gray-500">
         <div className="flex items-center gap-2">
-          <div className="w-6 h-px bg-green-700 border-1"></div>
+          <div className="w-6 h-px bg-green-600 border-1"></div>
           <span>Aug 19, 2024</span>
         </div>
         <div className="flex items-center gap-2">

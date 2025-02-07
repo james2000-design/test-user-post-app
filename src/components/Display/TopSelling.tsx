@@ -1,9 +1,9 @@
-import { FileText } from "lucide-react";
 import { Card } from "../UI/Card";
 import avatar4 from "../../assets/avatar4.png";
 import avatar5 from "../../assets/avatar5.png";
 import avatar6 from "../../assets/avatar6.png";
 import avatar7 from "../../assets/avatar7.png";
+import HoverModal from "../UI/hoverModal";
 
 interface TopSellingProps {
   title: string;
@@ -37,12 +37,9 @@ const TopSelling = ({ title }: TopSellingProps) => {
     },
   ];
   return (
-    <Card className="w-full max-w-md p-4 bg-white mt-1">
-      <div className="flex justify-between items-center mb-4">
-        <div className="text-sm text-gray-500 mb-1 border-b border-dashed border-gray-300">
-          {title}
-        </div>
-        <FileText className="w-6 h-6 mr-2" />
+    <Card className="w-full max-w-md p-4 bg-white mt-">
+      <div className=" mb-4">
+        <HoverModal title={title} />
       </div>
 
       <table className="w-full mt-4 text-left text-gray-700">

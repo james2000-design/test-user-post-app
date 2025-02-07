@@ -26,6 +26,7 @@ const SignUp = () => {
 
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
+  const [error, setError] = useState("");
   const { isAuthenticated } = useSelector((state: RootState) => state.auth);
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
@@ -36,9 +37,9 @@ const SignUp = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
+    setError("");
     if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match");
+      setError("Passwords do not match");
       return;
     }
 
@@ -51,8 +52,13 @@ const SignUp = () => {
     }
   }, [isAuthenticated, navigate]);
   return (
-    <div className="flex items-center justify-center bg-gray-200 min-h-screen">
+    <div className="flex items-center justify-center ">
       <div className="p-6 rounded-2xl shadow-lg w-full max-w-md bg-white border-2 border-gray-200">
+        {error && (
+          <div className="mb-4 p-2 text-red-600 bg-red-100 rounded-lg text-sm">
+            {error}
+          </div>
+        )}
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-semibold text-gray-800">Sign Up</h2>
           <button
@@ -77,7 +83,7 @@ const SignUp = () => {
               value={formData.username}
               onChange={handleChange}
               placeholder="Enter username"
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-red-500 focus:outline-none"
+              className="mt-1 block w-full px-4 py-2 bg-[#F9F9FA] border border-gray-300 rounded-lg focus:ring focus:ring-red-500 focus:outline-none"
               required
             />
           </div>
@@ -94,7 +100,7 @@ const SignUp = () => {
               value={formData.email}
               onChange={handleChange}
               placeholder="Enter email"
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-red-500 focus:outline-none"
+              className="mt-1 block w-full px-4 bg-[#F9F9FA] py-2 border border-gray-300 rounded-lg focus:ring focus:ring-red-500 focus:outline-none"
               required
             />
           </div>
@@ -112,7 +118,7 @@ const SignUp = () => {
               value={formData.phone}
               onChange={handleChange}
               placeholder="Enter phone number"
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-red-500 focus:outline-none"
+              className="mt-1 block w-full px-4 py-2 bg-[#F9F9FA] border border-gray-300 rounded-lg focus:ring focus:ring-red-500 focus:outline-none"
               required
             />
           </div>
@@ -130,7 +136,7 @@ const SignUp = () => {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="••••••••"
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-red-500 focus:outline-none"
+                className="mt-1 block w-full px-4 bg-[#F9F9FA] py-2 border border-gray-300 rounded-lg focus:ring focus:ring-red-500 focus:outline-none"
                 required
               />
               <button
@@ -157,7 +163,7 @@ const SignUp = () => {
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 placeholder="••••••••"
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-red-500 focus:outline-none"
+                className="mt-1 block w-full bg-[#F9F9FA] px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-red-500 focus:outline-none"
                 required
               />
               <button
@@ -174,7 +180,7 @@ const SignUp = () => {
           </div>
           <button
             type="submit"
-            className="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition"
+            className="w-full bg-[#9A1725] text-white py-2 rounded-lg hover:bg-red-700 transition"
           >
             Sign Up
           </button>
@@ -183,11 +189,22 @@ const SignUp = () => {
           Already have an account?{" "}
           <button
             type="button"
-            className="text-red-600 font-semibold hover:underline cursor-pointer"
+            className="text-[#9A1725] font-semibold hover:underline cursor-pointer"
             onClick={() => navigate("/login")}
           >
             Login
           </button>
+        </p>
+
+        <p className=" font-light text-[14px] mt-2 ">
+          Please visit{" "}
+          <span className="underline cursor-pointer">
+            Afrikobo Privacy Statement
+          </span>{" "}
+          to learn more about personaldata processing at Afrikobo. The Afrikobo{" "}
+          <span className="underline cursor-pointer">Privacy Policy</span> and{" "}
+          <span className="underline cursor-pointer"> Terms of Service</span>{" "}
+          apply.
         </p>
       </div>
     </div>

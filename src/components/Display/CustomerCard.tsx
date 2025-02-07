@@ -1,8 +1,8 @@
-import { FileText } from "lucide-react";
 import { Card } from "../UI/Card";
 import avatar from "../../assets/avatar.png";
 import avatar2 from "../../assets/avatar2.png";
 import avatar3 from "../../assets/avatar3.png";
+import HoverModal from "../UI/hoverModal";
 
 interface CustomerDataProps {
   title: string;
@@ -30,15 +30,11 @@ export const CustomerCard = ({ title }: CustomerDataProps) => {
   ];
   return (
     <Card className="w-full max-w-md p-4 bg-white mt-1">
-      <div className="flex justify-between items-start">
-        <div>
-          <div className="text-sm text-gray-500 mb-1 border-b border-gray-300 border-dashed">
-            {title}
-          </div>
-          <div className=" text-start"> ₦22,035.00-</div>
-        </div>
-        <FileText className="w-5 h-5 mr-2" />
+      <div className="w-full m-0 p-0">
+        <HoverModal title={title} />{" "}
+        <div className=" text-start"> ₦22,035.00-</div>
       </div>
+
       <table className="w-full mt-4 text-left text-gray-700">
         <thead>
           <tr className="text-gray-500 text-sm">

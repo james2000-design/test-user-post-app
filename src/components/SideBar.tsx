@@ -74,14 +74,14 @@ export default function Sidebar() {
           </div>
         </div>
         <div className="bg-[#F5E8E9] py-2 rounded-lg mt-4">
-          <div className="flex items-center space-x-2 px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-200 text-gray-700">
+          <div className="flex items-center space-x-2 px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-200 text-gray-700 relative">
             <FaHeadset />
             <span>Support</span>
+            <span className="w-2 h-2 bg-red-500 rounded-full absolute right-4 top-[1.1rem] "></span>
           </div>
           <div className="flex items-center space-x-2 px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-200 text-gray-700 relative">
             <FaCogs />
             <span>Configuration</span>
-            <span className="w-2 h-2 bg-red-500 rounded-full absolute right-4 top-[1.1rem] "></span>
           </div>
         </div>
       </div>

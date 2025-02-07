@@ -42,7 +42,7 @@ const PostTable = () => {
 
   return (
     <div className="bg-[#FFFFFF] border-gray-200 pt-2 rounded-lg">
-      <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:items-center sm:justify-between p-2">
+      <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:items-center sm:justify-between px-2 py-1">
         <div className="flex items-center flex-1 max-w-md">
           <div className="relative w-full">
             <Search className="absolute left-3 top-3 transform -translate-y-1/2 text-gray-400 w-4 h-4 " />
@@ -105,7 +105,7 @@ const PostTable = () => {
                   <td className="border-t border-gray-300 text-sm p-2">
                     {post.title}
                   </td>
-                  <td className="border-t border-gray-300 text-sm p-2 flex  ">
+                  <td className=" text-sm p-2 flex  ">
                     <span className="bg-gray-200 px-2 py-1 text-center rounded">
                       {getUserById(post.userId)}
                     </span>
