@@ -25,7 +25,7 @@ const ConversionRateCard = ({ title }: ConversionRateCardProps) => {
   ];
 
   return (
-    <Card className="w-full max-w-md  py-1 bg-white mt-1">
+    <Card className="w-full max-w-md bg-white mt-1">
       <div className="w-full ">
         <HoverModal title={title} />
         <div className=" text-left"> 0% -</div>
@@ -35,7 +35,7 @@ const ConversionRateCard = ({ title }: ConversionRateCardProps) => {
           {conversionData.map((item) => (
             <tr
               key={item.label}
-              className="text-start p-4  border-b border-gray-300  "
+              className="text-left px-4  border-b border-gray-300  "
             >
               <td className="py-2">
                 <div className="text-sm text-gray-600 ">{item.label}</div>
@@ -43,9 +43,7 @@ const ConversionRateCard = ({ title }: ConversionRateCardProps) => {
                   {item.sessions} sessions
                 </div>
               </td>
-              <td className="text-right text-sm text-gray-800">
-                {item.percentage}
-              </td>
+              <td className=" text-sm text-gray-800">{item.percentage}</td>
               <td className="text-center px-4">-</td>
             </tr>
           ))}

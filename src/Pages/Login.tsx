@@ -41,7 +41,7 @@ const Login = () => {
   }, [isAuthenticated, navigate]);
   return (
     <div className="flex items-center justify-center ">
-      <div className="p-6 rounded-2xl shadow-lg w-full max-w-md bg-white border-2 border-gray-200">
+      <div className=" relative p-6 rounded-2xl shadow-lg w-full max-w-md bg-white border-2 border-gray-200">
         {/* Error Message */}
         {error && (
           <div className="mb-4 p-2 text-[#9A1725] bg-red-100 rounded-lg text-sm">
@@ -53,11 +53,16 @@ const Login = () => {
             Sign into your account
           </h2>
           <button
-            className="text-gray-500 hover:text-gray-700 focus:outline-none"
+            className="text-white hover:text-gray-700 focus:outline-none absolute top-2 right-3 rounded-full bg-black w-6 h-6"
             aria-label="Close"
           >
             ✖
           </button>
+        </div>
+        <div className="flex items-center justify-center w-full my-4">
+          <div className="w-full h-px bg-gray-300"></div>
+          <span className="mx-4 text-gray-500 text-sm font-medium">Or</span>
+          <div className="w-full h-px bg-gray-300"></div>
         </div>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>

@@ -37,7 +37,7 @@ const TopSelling = ({ title }: TopSellingProps) => {
     },
   ];
   return (
-    <Card className="w-full max-w-md p-4 bg-white mt-">
+    <Card className="w-full max-w-md p-2 bg-white ">
       <div className=" mb-4">
         <HoverModal title={title} />
       </div>

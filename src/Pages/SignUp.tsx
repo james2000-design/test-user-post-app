@@ -13,12 +13,21 @@ interface User {
   password: string;
   confirmPassword?: string;
   website?: string;
+  countryCode: string;
 }
 
 const SignUp = () => {
+  const countryCodes = [
+    { code: "+1" },
+    { code: "+44" },
+    { code: "+49" },
+    { code: "+91" },
+    { code: "+234" },
+  ];
   const [formData, setFormData] = useState<User>({
     username: "",
     email: "",
+    countryCode: "+234",
     phone: "",
     password: "",
     confirmPassword: "",
@@ -31,7 +40,9 @@ const SignUp = () => {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -51,22 +62,30 @@ const SignUp = () => {
       navigate("/dashboard");
     }
   }, [isAuthenticated, navigate]);
+
   return (
     <div className="flex items-center justify-center ">
-      <div className="p-6 rounded-2xl shadow-lg w-full max-w-md bg-white border-2 border-gray-200">
+      <div className=" relative p-6 rounded-2xl shadow-lg w-full max-w-md bg-white border-2 border-gray-200">
         {error && (
-          <div className="mb-4 p-2 text-red-600 bg-red-100 rounded-lg text-sm">
+          <div className="my-4 p-2 text-red-600 bg-red-100 rounded-lg text-sm">
             {error}
           </div>
         )}
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-semibold text-gray-800">Sign Up</h2>
+        <div className=" items-center mb-4">
+          <h2 className="text-xl font-semibold text-gray-800">
+            Create an account{" "}
+          </h2>
           <button
-            className="text-gray-500 hover:text-gray-700 focus:outline-none"
+            className=" hover:text-gray-700 text-white focus:outline-none absolute top-2 right-3 rounded-full bg-black w-6 h-6"
             aria-label="Close"
           >
             ✖
           </button>
+        </div>
+        <div className="flex items-center justify-center w-full my-4">
+          <div className="w-full h-px bg-gray-300"></div>
+          <span className="mx-4 text-gray-500 text-sm font-medium">Or</span>
+          <div className="w-full h-px bg-gray-300"></div>
         </div>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -111,16 +130,29 @@ const SignUp = () => {
             >
               Phone Number
             </label>
-            <input
-              id="phone"
-              type="text"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              placeholder="Enter phone number"
-              className="mt-1 block w-full px-4 py-2 bg-[#F9F9FA] border border-gray-300 rounded-lg focus:ring focus:ring-red-500 focus:outline-none"
-              required
-            />
+            <div className="flex  bg-[#F9F9FA] border border-gray-300 rounded-lg">
+              <select
+                name="countryCode"
+                value={formData.countryCode}
+                onChange={handleChange}
+                className=" py-2 "
+              >
+                {countryCodes.map((code) => (
+                  <option key={code.code} value={code.code}>
+                    {code.code}
+                  </option>
+                ))}
+              </select>
+              <input
+                type="text"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="Enter phone number"
+                className=" block w-full  bg-[#F9F9FA] px-2   focus:ring focus:ring-red-500 focus:outline-none"
+                required
+              />
+            </div>
           </div>
           <div>
             <label
