@@ -130,7 +130,7 @@ const Login = () => {
           <button
             type="button"
             className="text-[#9A1725] font-semibold hover:underline cursor-pointer"
-            onClick={() => navigate("/signup")}
+            onClick={() => navigate("/")}
           >
             Sign Up
           </button>

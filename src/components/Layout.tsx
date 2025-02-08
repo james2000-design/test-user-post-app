@@ -20,7 +20,7 @@ export default function DashboardLayout() {
             <h1 className="text-lg font-semibold">{pageTitle}</h1>
           </div>
           <div className="w-full ">
-            <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:items-center sm:justify-between border-gray-300  border-b-[1.5px] pb-4 ">
+            <div className="flex flex-wrap justify-center space-y-4 sm:space-y-0  sm:items-center sm:justify-between border-gray-300  border-b-[1.5px] pb-4 ">
               <div className="flex space-x-2">
                 <button
                   onClick={() => (window.location.href = "/dashboard/report")}
